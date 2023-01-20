@@ -37,7 +37,9 @@ func Insert(name string) {
 
 func Update(id string,name string) bool {
 	if data, found := Map[id]; found {
+		fmt.Println(data)
 		data.Username=name
+		Map[id]=data
 		return true
 	}else{
 		return false
