@@ -8,6 +8,7 @@ import (
 )
 
 var Map = make(map[string]User)
+
 type User struct {
 	ID       string `json:"id"`
 	Username string `json:"name"`

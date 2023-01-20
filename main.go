@@ -6,13 +6,10 @@ import (
 	"golang-gin/router"
 )
 
-var index = 4
-
 func init() {
 	models.Insert("A")
 	models.Insert("B")
 	models.Insert("C")
-	models.Insert("D")
 }
 
 func main() {
