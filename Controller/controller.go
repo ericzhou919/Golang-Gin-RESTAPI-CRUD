@@ -19,14 +19,31 @@ func Insert(c *gin.Context) {
 	name := c.PostForm("name")
 	models.Insert(name)
 	c.JSON(200, gin.H{
-		"message": "insert success!",
+		"message": "Success insert",
 	})
-
+}
+func Update(c *gin.Context) {
+	name := c.PostForm("name")
+	id := (c.Param("id"))
+	if models.Update(id, name) {
+		c.JSON(200, gin.H{
+			"message": "Success update",
+		})
+	} else {
+		c.JSON(200, gin.H{
+			"message": "Not found",
+		})
+	}
 }
 func Delete(c *gin.Context) {
 	id := (c.Param("id"))
-	models.Delete(id)
-	c.JSON(200, gin.H{
-		"message": "success delete",
-	})
+	if models.Delete(id) {
+		c.JSON(200, gin.H{
+			"message": "Success delete",
+		})
+	} else {
+		c.JSON(200, gin.H{
+			"message": "Not found",
+		})
+	}
 }

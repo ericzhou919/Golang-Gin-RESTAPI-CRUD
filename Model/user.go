@@ -35,15 +35,21 @@ func Insert(name string) {
 	Map[id]=data
 }
 
-func Update(id string,name string) {
+func Update(id string,name string) bool {
 	if data, found := Map[id]; found {
 		data.Username=name
+		return true
+	}else{
+		return false
 	}
 }
 
-func Delete(id string) {
+func Delete(id string) bool{
 	if x, found := Map[id]; found {
 		fmt.Println(x)  
 		delete(Map, id)
-	}   
+		return true
+	}else{
+		return false
+	}
 }
